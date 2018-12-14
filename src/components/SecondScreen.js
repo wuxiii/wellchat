@@ -11,14 +11,8 @@ import {
 import {Actions, ActionConst} from 'react-native-router-flux';
 
 import arrowImg from '../images/left-arrow.png';
-import IMUI from 'aurora-imui-react-native'
-
+import ChatView from './ChatView'
 const SIZE = 40;
-
-var InputView = IMUI.ChatInput
-var MessageListView = IMUI.MessageList
-const AuroraIController = IMUI.AuroraIMUIController
-
 
 export default class SecondScreen extends Component {
   constructor() {
@@ -65,8 +59,7 @@ export default class SecondScreen extends Component {
         <Animated.View
           style={[styles.circle, {transform: [{scale: changeScale}]}]}
         />
-          <MessageList />
-          <ChatInput />
+          <ChatView/>
 
       </View>
     );
