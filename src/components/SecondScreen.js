@@ -9,6 +9,7 @@ import {
   Easing,
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
+import FriendList from './FriendsList'
 
 import arrowImg from '../images/left-arrow.png';
 import ChatView from './ChatView'
@@ -50,16 +51,17 @@ export default class SecondScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={this._onPress}
           style={styles.button}
           activeOpacity={1}>
           <Image style={styles.image} source={arrowImg} />
-        </TouchableOpacity>
-        <Animated.View
+        </TouchableOpacity> */}
+        {/* <Animated.View
           style={[styles.circle, {transform: [{scale: changeScale}]}]}
-        />
-          <ChatView/>
+        /> */}
+          {/* <ChatView/> */}
+          <FriendList/>
 
       </View>
     );
@@ -69,9 +71,10 @@ export default class SecondScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 20,
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    // margin: 20,
+    // alignItems: 'flex-end',
+    // justifyContent: 'flex-end',
+    backgroundColor:'#F035E0'
   },
   button: {
     alignItems: 'center',

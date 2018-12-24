@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import {StyleSheet, DeviceEventEmitter, Image, Platform} from 'react-native'
-import {Router, Scene, Modal, Lightbox} from 'react-native-router-flux'
+import {Router, Scene, Modal, Lightbox,Stack} from 'react-native-router-flux'
 import {Provider} from 'react-redux'
 import configureStore from './store/index'
 
 import LoginScreen from './components/LoginScreen';
-import SecondScreen from './components/SecondScreen'
+import SecondScreen from './components/SecondScreen';
+import CustomNavBar from './components/CustomNavBar';
+import ChartView from './components/ChatView'
 
 let store = configureStore();
 const styles = StyleSheet.create({
@@ -29,18 +31,25 @@ export default class App extends Component {
         return (
             <Provider store={store}>
                 <Router getSceneStyle={getSceneStyle}>
-                    <Scene key="root">
+                    <Scene key="root"  back>
+                        <Scene key="secondScreen"
+                                title="Friends"
+                                component={SecondScreen}
+                                animation='fade'
+                                navigationBarStyle={{backgroundColor:'#F035E0'}}
+                                />
                         <Scene key="loginScreen"
                             component={LoginScreen}
-                                animation='fade'
-                            hideNavBar={true}
-                            initial={true}
-                            />
-                            <Scene key="secondScreen"
-                            component={SecondScreen}
                             animation='fade'
                             hideNavBar={true}
-                            />
+                            initial={true}
+                            />  
+
+                        <Scene key="chatView"
+                                component={ChartView}
+                                animation='fade'
+                                title="Chat"
+                        />
                     </Scene>
                 </Router>
             </Provider>
